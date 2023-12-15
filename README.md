@@ -6,6 +6,7 @@ Progetto di Ticketing Aziendale della Limonta s.p.a
 > - Analisi dei rischi
 > - Analisi dei rischi EXCEL
 > - Verbali
+> - Breefing
 # info utili
 > [!important]
 > aprire l'analisi dei rischi excel nel programma excel (non su browser) 
