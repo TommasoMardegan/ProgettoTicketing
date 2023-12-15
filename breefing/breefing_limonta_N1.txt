@@ -1,0 +1,35 @@
+DOMANDE:
+	1. POSSONO FORNIRE LA VERSIONE ATTUALE
+	2 INTEGRARE CON AI?
+	3. REQUISITI PROGETTO
+	
+	
+	
+DOCUMENTO DI BREEF
+	- documento con 
+					requisiti
+					contesto e obiettivi
+					target di riferimento--> importante capirre a chi va a parlare strumento
+					nice-to-have--> non fondamentale 
+					attuali criticità
+					deliverables--> quello da consegnare
+					
+					
+
+
+ci forniscono vecchio --> riprogrettare interfaccia ux/ui--> migliorarla perchè vecchia
+
+interfaccia web--> il cliente invia email--> indirizzo mittente viene riconosciuto
+IL CLIENTE PUA' AVERE UN INTERFACCIA WEB --> può accedere ai ticket e consultare stato dei propri ticket
+																										- email
+																										- pagina web
+
+datatbase da riprogettare--> senza conservare lo storico dei dati--> mysql o qualsiasi --> TABELLA RELAZIONALE
+
+
+gestione di thred per risposta a ticket--> non si deve aprire un nuovo ticket-->deve ricondurre al ticket iniziale
+
+ripettare requisiti minimi di sicurezza (standard) --> non richiedono requisiti oltre ai minimi
+
+
+fare documentazione tecnica
