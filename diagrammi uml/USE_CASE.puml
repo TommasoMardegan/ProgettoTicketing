@@ -1,0 +1,23 @@
+@startuml
+left to right direction
+
+actor Cliente as cliente
+actor "Sistema di Ticketing" as sistema
+actor Dipendente as dipendente
+
+usecase "Apertura Ticket tramite Email" as aperturaEmail
+usecase "Apertura Ticket da Dipendente" as aperturaDipendente
+usecase "Categorizzazione Ticket" as categorizzazione
+usecase "Notifiche di Stato" as notificheStato
+usecase "Risposta del Dipendente al Ticket" as rispostaDipendente
+
+cliente --> aperturaEmail : Invia Email
+aperturaEmail --> sistema : Elabora Email e Crea Ticket
+dipendente --> aperturaDipendente : Accede al Sistema
+aperturaDipendente --> aperturaDipendente : Apre nuovo Ticket
+dipendente --> categorizzazione : Seleziona Categoria
+sistema --> notificheStato : Invia Notifiche di Stato
+dipendente --> rispostaDipendente : Risponde al Ticket
+rispostaDipendente --> sistema : Aggiorna Stato e Notifica Cliente
+
+@enduml

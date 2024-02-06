@@ -1,0 +1,16 @@
+@startuml
+
+left to right direction
+
+actor Dipendente as dipendente
+actor "Sistema di Ticketing" as sistema
+
+usecase "Monitoraggio dei Tempi di Risposta" as monitoraggioTempi
+usecase "Notifica di Escalation" as notificaEscalation
+
+dipendente --> monitoraggioTempi : Apre il ticket
+monitoraggioTempi --> sistema : Registra il momento di apertura del ticket
+monitoraggioTempi --> sistema : Monitora il tempo di risposta
+monitoraggioTempi --> notificaEscalation : Ticket non risolto entro il limite di tempo
+
+@enduml

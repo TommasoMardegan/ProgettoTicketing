@@ -1,0 +1,15 @@
+@startuml
+
+left to right direction
+
+actor Dipendente as dipendente
+actor "Sistema di Ticketing" as sistema
+
+usecase "Categorizzazione dei Ticket" as categorizzazioneTicket
+usecase "Selezione di categoria non valida" as selezioneNonValida
+
+dipendente --> categorizzazioneTicket : Seleziona categoria durante l'apertura del ticket
+categorizzazioneTicket-->sistema : Assegna automaticamente la categoria al ticket
+categorizzazioneTicket -->selezioneNonValida : Categoria non valida
+
+@enduml

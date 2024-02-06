@@ -1,0 +1,18 @@
+@startuml
+
+left to right direction
+
+actor Cliente as cliente
+actor "Sistema di Ticketing" as sistema
+actor Dipendente as dipendente
+
+usecase "Apertura Ticket da Dipendente" as aperturaDipendente
+
+usecase "Dipendente non autorizzato" as dipendenteNonAutorizzato
+aperturaDipendente-->sistema:Salvataggio Ticket
+cliente --> aperturaDipendente : Richiede Apertura Ticket
+dipendente --> aperturaDipendente : Accede al Sistema
+aperturaDipendente --> aperturaDipendente : Apre nuovo Ticket
+aperturaDipendente --> dipendenteNonAutorizzato : Dipendente non autorizzato
+
+@enduml

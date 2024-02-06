@@ -1,0 +1,16 @@
+@startuml
+
+left to right direction
+
+actor Cliente as cliente
+actor "Sistema di Ticketing" as sistema
+
+usecase "Notifiche di Stato" as notificheStato
+usecase "Nuova Notifica di Stato" as nuovaNotificaStato
+
+cliente --> notificheStato : Riceve notifiche di stato
+notificheStato<-- sistema : Invia automaticamente notifiche di stato
+
+notificheStato -->nuovaNotificaStato : Stato del ticket cambia
+
+@enduml

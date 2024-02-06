@@ -1,0 +1,16 @@
+@startuml
+
+left to right direction
+
+actor Cliente as cliente
+actor "Sistema di Ticketing" as sistema
+
+usecase "Apertura di un Ticket tramite Email" as aperturaTicketEmail
+
+usecase "Email non ben formata" as emailNonBenFormata
+
+cliente --> aperturaTicketEmail : Invia email al sistema di ticketing
+aperturaTicketEmail -->  sistema: Elabora email e crea nuovo ticket
+aperturaTicketEmail --> emailNonBenFormata : Email non ben formata
+
+@enduml
