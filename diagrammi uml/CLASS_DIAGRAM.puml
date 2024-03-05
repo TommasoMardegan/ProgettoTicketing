@@ -1,0 +1,63 @@
+class Ticket {
+- id: int
+- cliente: Cliente
+- dipendente: Dipendente
+- categoria: Categoria
+- stato: Stato
+- dataCreazione: Date
+- dataRisoluzione: Date
+- descrizione: String
+- priorita: Priorita
+- allegati: List - messaggi: List
++ apriTicket(): void
++ chiudiTicket(): void
++ assegnaTicket(dipendente: Dipendente): void
++ aggiungiAllegato(allegato: Allegato): void
++ aggiungiMessaggio(mittente: String, testo: String): void
++ visualizzaMessaggi(): void
+}
+
+class Cliente {
+- id: int
+- nome: String
+- email: String
+}
+
+class Dipendente {
+- id: int
+- nome: String
+- ruolo: String
+}
+
+class Categoria {
+- id: int
+- nome: String
+}
+
+class Stato {
+- id: int
+- nome: String
+}
+
+class Priorita {
+- id: int
+- nome: String
+}
+
+class Allegato {
+- id: int
+- nomeFile: String
+- tipoFile: String
+- dati: byte[]
+}
+
+class Messaggio {
+- mittente: String
+- testo: String
+- dataOra: DateTime
+
++ __construct(mittente: String, testo: String)
++ getMittente(): String
++ getTesto(): String
++ getDataOra(): DateTime
+}
