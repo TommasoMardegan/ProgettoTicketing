@@ -23,19 +23,20 @@ if ($conn->connect_error) {
 }
 
 // query da eseguire
-$SELECT = "SELECT * FROM tua_tabella";
+$SELECT = "SELECT * FROM aperturaticket";
 $result = $conn->query($SELECT);
 
 $data = array();
-
+$response= array();
+// salvo in un array i ticket
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
+    $response['message'] = $data;
+    $response['status'] = true;
 }
-
+// ritorno in json l'array
 echo json_encode($data);
 $conn->close();
-?>
-
 ?>

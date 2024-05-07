@@ -3,16 +3,19 @@ $(document).ready(function() {
 });
 
 function mostra_dipendete() {
+    // popolo la data table con i valori dei ticket
     $.get("../AJAX/visualizzaDipendente.php", function(response) {
         var data = JSON.parse(response);
         var table = $('#datatable').DataTable();
         table.clear().draw();
         data.forEach(function(item) {
             table.row.add([
-                item.id,
-                item.nome,
-                item.cognome
-                // Aggiungi altri campi se necessario
+                item.ID,
+                item.IDcliente,
+                item.stato,
+                item.area,
+                item.breveDescrizione,
+                item.dataApertura
             ]).draw();
         });
     });
