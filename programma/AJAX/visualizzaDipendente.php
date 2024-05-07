@@ -1,46 +1,60 @@
 <?php
-include_once "../constants/constants.php";
-if (!isset($_SESSION))
+if (!isset($_SESSION)) {
     session_start();
-// controllo che l'utente sia loggato
-if (!isset($_SESSION[$user_loggato])) {
-    // vado alla login 
-    // header("Location: ../pages/login.php");
-    exit;
 }
 
-// sostituisco i segnaposto con le tue informazioni sul database
+// // Controllo che l'utente sia loggato
+// if (!isset($_SESSION["id_utente"])) {
+//     exit;
+// }
+
+// Sostituisco i segnaposto con le tue informazioni sul database
 $servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "limonta";
-// creo connessione al database
+
+// Creo connessione al database
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// verifico la connessione
+// Verifico la connessione
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// query da eseguire
-$SELECT = "SELECT * FROM aperturaticket";
+// Query da eseguire
+$SELECT = "SELECT * FROM aperturaticket WHERE stato = 'aperto'"; // Prendo i ticket aperti
 $result = $conn->query($SELECT);
 
 $data = array();
-$response= array();
-// salvo in un array i ticket
+$response["status"] = "ko";
+$response["message"] = "ciao";
+
+// Salvo in un array i ticket
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         $data[] = $row;
     }
-    $response['message'] = $data;
-    $response['status'] = "ok";
+
+    // Genero il codice HTML per la DataTable
+    $html = "";
+    $html .= "<thead><tr><th>ID</th><th>ID Cliente</th><th>Stato</th><th>Area</th><th>Breve Descrizione</th><th>Data Apertura</th></tr></thead>";
+    $html .= "<tbody>";
+    foreach ($data as $row) {
+        $html .= "<tr>";
+        $html .= "<td>" . $row['ID'] . "</td>";
+        $html .= "<td>" . $row['IDcliente'] . "</td>";
+        $html .= "<td>" . $row['stato'] . "</td>";
+        $html .= "<td>" . $row['area'] . "</td>";
+        $html .= "<td>" . $row['breveDescrizione'] . "</td>";
+        $html .= "<td>" . $row['dataApertura'] . "</td>";
+        $html .= "</tr>";
+    }
+    $html .= "</tbody>";
+echo $html;
 }
-else{
-    $response['message'] = "errore con l'interrogazione con il db";
-    $response['status'] = "ko";
-}
-// ritorno in json l'array
-echo json_encode($data);
+
+// Ritorno in JSON l'array
+// echo json_encode($response);
 $conn->close();
 ?>

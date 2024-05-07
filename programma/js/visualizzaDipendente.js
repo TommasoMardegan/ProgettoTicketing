@@ -3,26 +3,12 @@ $(document).ready(function () {
 });
 
 function mostra_dipendete() {
-    // popolo la DataTable con i valori dei ticket
-    $.get("../AJAX/visualizzaDipendente.php", function (response) {
-        // verifico che sia avvenuto tutto correttamente
-        if (response["status"] == "ok") {
-            alert(response["message"]);
+    $.get("../AJAX/visualizzaDipendente.php", {}, function (data) {
+        if (data["status"] == "ok") {
+            $("#myTable").html(data.html);
+            $('#myTable').DataTable();
         } else {
-            alert(response["message"]);
-            let data = JSON.parse(response["message"]); // Accesso ai dati dell'oggetto response
-            let table = $('#datatable').DataTable();
-            table.clear().draw();
-            data.forEach(function (item) {
-                table.row.add([
-                    item.ID,
-                    item.IDcliente,
-                    item.stato,
-                    item.area,
-                    item.breveDescrizione,
-                    item.dataApertura
-                ]).draw();
-            });
+            alert("Errore: " + data["message"]);
         }
     }, "json");
 }
