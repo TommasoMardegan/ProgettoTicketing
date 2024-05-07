@@ -5,7 +5,7 @@ if (!isset($_SESSION))
 // controllo che l'utente sia loggato
 if (!isset($_SESSION[$user_loggato])) {
     // vado alla login 
-    header("Location: ../pages/login.php");
+    // header("Location: ../pages/login.php");
     exit;
 }
 
@@ -34,7 +34,11 @@ if ($result->num_rows > 0) {
         $data[] = $row;
     }
     $response['message'] = $data;
-    $response['status'] = true;
+    $response['status'] = "ok";
+}
+else{
+    $response['message'] = "errore con l'interrogazione con il db";
+    $response['status'] = "ko";
 }
 // ritorno in json l'array
 echo json_encode($data);
