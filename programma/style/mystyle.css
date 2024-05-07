@@ -55,16 +55,6 @@
 #myTable tbody tr:hover {
     background-color: #f0f0f0;
 }
-#myTable th:nth-child(1),
-#myTable td:nth-child(1) {
-    width: 100px; /* Imposta la larghezza della prima colonna */
-}
 
-#myTable th:nth-child(2),
-#myTable td:nth-child(2) {
-    width: 150px; /* Imposta la larghezza della seconda colonna */
-}
-
-/* E così via per le altre colonne */
 
 

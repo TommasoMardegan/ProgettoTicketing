@@ -38,7 +38,7 @@ if ($result->num_rows > 0) {
 
     // Genero il codice HTML per la DataTable
     $html = "";
-    $html .= "<thead><tr><th>ID</th><th>ID Cliente</th><th>Stato</th><th>Area</th><th>Breve Descrizione</th><th>Data Apertura</th></tr></thead>";
+    $html .= "<thead><tr><th>ID</th><th>ID Cliente</th><th>Stato</th><th>Area</th><th>Breve Descrizione</th><th>Data Apertura</th><th>Info</th></tr></thead>";
     $html .= "<tbody>";
     foreach ($data as $row) {
         $html .= "<tr>";
@@ -48,11 +48,19 @@ if ($result->num_rows > 0) {
         $html .= "<td>" . $row['area'] . "</td>";
         $html .= "<td>" . $row['breveDescrizione'] . "</td>";
         $html .= "<td>" . $row['dataApertura'] . "</td>";
+        $html .= "<td><i class='fas fa-info-circle' id='" . $row["ID"] . "'></i></td>";
         $html .= "</tr>";
     }
     $html .= "</tbody>";
-echo $html;
 }
+
+$response = array(
+    "status" => "ok",
+    "html" => $html
+);
+
+echo json_encode($response);
+
 
 // Ritorno in JSON l'array
 // echo json_encode($response);
