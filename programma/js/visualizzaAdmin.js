@@ -4,11 +4,11 @@ $(document).ready(function () {
         esciDipendente();
     });
     
-    mostra_dipendente();
+    mostra_admin();
 });
 
-function mostra_dipendente() {
-    $.get("../AJAX/visualizzaDipendente.php", {}, function (data) {
+function mostra_admin() {
+    $.get("../AJAX/visualizzaAdmin.php", {}, function (data) {
         if (data["status"] == "ok") {
             $("#myTable").html(data.html); // Accedi direttamente a data.html invece di data["html"]
             var table = $('#myTable').DataTable();

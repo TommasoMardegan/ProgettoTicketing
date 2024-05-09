@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$SELECT = "SELECT * FROM aperturaticket WHERE stato = 'aperto'";
+$SELECT = "SELECT * FROM aperturaticket";
 $result = $conn->query($SELECT);
 
 $data = array();

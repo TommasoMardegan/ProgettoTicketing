@@ -9,7 +9,7 @@
     <!-- Script per DataTables -->
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
    
-    <script src="../js/visualizzaDipendente.js"></script>
+    <script src="../js/visualizzaAdmin.js"></script>
     <script src="../js/logout.js">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.0.6/css/dataTables.dataTables.css" />
   
